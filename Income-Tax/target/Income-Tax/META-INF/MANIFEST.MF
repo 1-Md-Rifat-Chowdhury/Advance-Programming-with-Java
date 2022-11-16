@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: user
+Build-Jdk: Oracle OpenJDK version 1.8.0_333
+Implementation-Title: CGPA
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.Tax
+Main-Class: ${start-class}
+
