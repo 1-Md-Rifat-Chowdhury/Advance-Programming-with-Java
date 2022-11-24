@@ -6,7 +6,10 @@ import com.domain.LeaveType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.service.LeaveApplicationService;
 import com.service.LeaveTypeService;
+import com.service.StudentService;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -60,9 +63,25 @@ public class HelloController {
         currency.setRate(101.2);
         return currency;
     }
+    @GetMapping("/currency/rate/from/{from}/to{to}")
 
-   // @GetMapping("/currency/rate/from/{from}/to/{to}")
-    public Currency rateWithParameter()
+    public Currency rateWithparameter(@PathVariable ("from") String from, @PathVariable ("to") String to)
+    {
+        Currency currency =new Currency();
+        if (from.equals("USD")&& to.equals("BDT"))
+        {
+            currency.setRate(101.2);
+        }
+        else if (from.equals("BDT")&& to.equals("USD")) {
+
+        currency.setRate(0.12);
+        }
+        else {
+            String s=" Something  Wrong pls Enter Correct  Value";
+            currency.setRate(Double.parseDouble(s));}
+        return currency;
+    }
+
 
 
 
